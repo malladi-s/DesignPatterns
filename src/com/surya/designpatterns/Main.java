@@ -2,10 +2,24 @@ package com.surya.designpatterns;
 
 import memento.Caretaker;
 import memento.Originator;
+import state.ConcreteStateA;
+import state.ConcreteStateB;
+import state.Context;
 
 public class Main {
     public static void main(String[] args) {
-        mementoPattern();
+        // mementoPattern();
+        statePattern();
+    }
+
+    private static void statePattern() {
+        Context context = new Context();
+
+        context.setCurrentState(new ConcreteStateA());
+        context.handle();
+
+        context.setCurrentState(new ConcreteStateB());
+        context.handle();
     }
 
     private static void mementoPattern() {
